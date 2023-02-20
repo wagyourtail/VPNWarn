@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name=": Minecraft Client" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <option name="MAIN_CLASS_NAME" value="net.minecraft.launchwrapper.Launch" />
+    <module name="VPNWarn.main" />
+    <option name="PROGRAM_PARAMETERS" value="--username Dev --version 1.8.9 --gameDir $PROJECT_DIR$/run/client --assetsDir $PROJECT_DIR$/build/unimined/fakeglobal/assets --assetIndex 1.8 --accessToken 0 --userProperties {} --userType msa --tweakClass net.minecraftforge.fml.common.launcher.FMLTweaker -mixin.config mixins.vpnwarn.json --tweakClass org.spongepowered.asm.launch.MixinTweaker --mixin mixins.vpnwarn.json" />
+    <option name="VM_PARAMETERS" value="-Xmx2G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M -Djava.library.path=$PROJECT_DIR$/run/client/natives -Dminecraft.launcher.brand=UniminedDev -Dminecraft.launcher.version=1.0.0 -Dfml.ignoreInvalidMinecraftCertificates=true -Dfml.deobfuscatedEnvironment=true -Dnet.minecraftforge.gradle.GradleStart.srg.srg-mcp=$PROJECT_DIR$/build/unimined/mappings/srg2mcp.srg" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run/client" />
+    <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+      <option name="credential" />
+      <option name="region" />
+      <option name="useCurrentConnection" value="false" />
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+      <option name="Gradle.BeforeRunTask" enabled="true" tasks="preRunClient" externalProjectPath="$PROJECT_DIR$/" vmOptions="" scriptParameters="" />
+    </method>
+  </configuration>
+</component>

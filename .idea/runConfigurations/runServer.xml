@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+    <configuration default="false" name=": Minecraft Server" factoryName="Application" type="Application">
+        <option name="ALTERNATIVE_JRE_PATH" value="17"></option>
+        <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false"></option>
+        <envs></envs>
+        <option name="MAIN_CLASS_NAME" value="net.minecraft.launchwrapper.Launch"></option>
+        <module name="VPNWarn.main"></module>
+        <option name="PROGRAM_PARAMETERS" value="nogui --tweakClass net.minecraftforge.fml.common.launcher.FMLServerTweaker -mixin.config mixins.vpnwarn.json"></option>
+        <option name="VM_PARAMETERS" value="-Dfml.ignoreInvalidMinecraftCertificates=true -Dfml.deobfuscatedEnvironment=true -Dnet.minecraftforge.gradle.GradleStart.srg.srg-mcp=/home/william/Documents/Projects/VPNWarn/build/unimined/mappings/srg2mcp.srg"></option>
+        <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run/server"></option>
+        <method v="2">
+            <option name="Make" enabled="true"></option>
+        </method>
+    </configuration>
+</component>

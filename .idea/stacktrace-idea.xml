@@ -12,6 +12,7 @@
     <option name="packages">
       <set>
         <option value="org.example" />
+        <option value="xyz.wagyourtail.vpnwarn" />
       </set>
     </option>
   </component>

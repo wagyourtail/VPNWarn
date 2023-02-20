@@ -1,0 +1,9 @@
+{
+    "required": true,
+    "minVersion": "0.7.11",
+    "package": "xyz.wagyourtail.vpnwarn.mixins",
+    "compatibilityLevel": "JAVA_8",
+    "client": [
+        "GuiConnectingMixin"
+    ]
+}

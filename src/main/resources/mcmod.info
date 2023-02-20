@@ -1,0 +1,14 @@
+[
+    {
+        "modid": "vpnwarn",
+        "name": "VPN Warn",
+        "version": "1.0.0",
+        "description": "Warns players when they try to join a server with a VPN",
+        "authorList": [
+            "Wagyourtail"
+        ],
+        "credits": "Wagyourtail",
+        "logoFile": "assets/vpnwarn/icon.png",
+        "url": "https://github.com/Wagyourtail/VPNWarn"
+    }
+]

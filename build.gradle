@@ -1,19 +1,86 @@
 plugins {
-    id 'java'
+    id 'xyz.wagyourtail.unimined' version '0.4.0-SNAPSHOT'
+     id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+archivesBaseName = rootProject.archives_base_name
+version = rootProject.mod_version
+group = rootProject.maven_group
+
+unimined {
+    useGlobalCache = false
+}
+
+minecraft {
+    forge {
+        mcpChannel = "stable"
+        mcpVersion = "${rootProject.mapping_version}-${rootProject.minecraft_version}"
+
+        mixinConfig = [
+            "mixins.vpnwarn.json"
+        ]
+    }
+
+    mcRemapper.tinyRemapperConf = {
+        ignoreFieldDesc(true)
+        ignoreConflicts(true)
+    }
+
+    launches.client = {
+        args.addAll([
+            "--tweakClass", "org.spongepowered.asm.launch.MixinTweaker",
+            "--mixin", "mixins.vpnwarn.json"
+        ])
+    }
+}
 
 repositories {
-    mavenCentral()
+    maven {
+        name = "sponge"
+        url = "https://repo.spongepowered.org/maven"
+    }
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    minecraft "net.minecraft:minecraft:${rootProject.minecraft_version}"
+
+    forge "net.minecraftforge:forge:${rootProject.minecraft_version}-${rootProject.forge_version}"
+
+    implementation "org.spongepowered:mixin:0.7.11-SNAPSHOT"
+    shadow "org.spongepowered:mixin:0.7.11-SNAPSHOT", { transitive = false }
 }
 
-test {
-    useJUnitPlatform()
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+
+    var version = 8
+    if (JavaVersion.current().isJava9Compatible()) {
+        options.release = version
+    }
+}
+
+shadowJar {
+    configurations = [project.configurations.shadow]
+    classifier "dev-shadow"
+}
+
+remapJar {
+    inputFile.set shadowJar.archiveFile
+    dependsOn shadowJar
+    classifier null
+}
+
+jar {
+    classifier "dev"
+
+    manifest {
+        attributes([
+            'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
+            'FMLCorePluginContainsFMLMod': true,
+            'ForceLoadAsMod': true
+        ])
+    }
 }
